@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Dragable content</title>
+	<style type="text/css">
+
+	/* CSS NEEDED ONLY IN THE DEMO */
+	body{
+		font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+		width:100%;
+		height:100%;
+		margin:0px;
+		padding:0px;
+		text-align:center;
+		background-color:#E2EBED;	
+		font-size:0.9em;	
+	}
+	#mainContainer{
+		width:760px;
+		margin:0 auto;
+		text-align:left;	
+		background-color:#FFF;
+		border:1px solid #317082;
+		padding:5px;
+	}
+	#mainContainer img{
+		padding:3px;
+	}
+	
+
+	#leftMenu{
+		width:145px;
+		float:left;
+		background-color:#DDD;
+		border:1px dotted #000;
+		padding:2px;
+		height:600px;
+		margin-left:2px;
+	}
+	#leftMenu ul{
+		margin:2px;
+	}
+	#leftMenu ul li{
+		list-style-type:none;
+	}
+	#leftMenu ul li a{
+		color:#000;
+		font-weight:bold;
+	}
+	#mainContent{
+		width:595px;
+		float:left;
+		padding-left:10px;
+	}
+	.clear{
+		clear:both;
+	}
+	#smallBox{
+		padding:5px;
+		border:1px dotted #000;
+		background-color:#DDD;
+		margin-bottom:5px;
+		width:577px;
+		float:left;
+	}
+	#smallBox img{
+		float:left;
+		padding:3px;
+		
+	}
+	#smallBox2{
+		padding:5px;
+		border:1px dotted #000;
+		background-color:#DDD;
+		margin-bottom:5px;
+		width:577px;
+		float:left;
+	}
+	#smallBox2 img{
+		float:right;
+		padding:3px;
+		
+	}
+	
+	#smallBox3{
+		padding:5px;
+		border:1px dotted #000;
+		background-color:#DDD;
+		margin-bottom:5px;
+		margin-right:5px;
+		width:280px;
+		float:left;
+	}
+	
+	#smallBox3 img{
+		float:right;
+		padding:3px;	
+	
+	}
+	h2,h3,h4{
+		margin-bottom:5px;
+		margin-top:0px;
+	}
+	
+	/* END CSS ONLY NEEDED FOR THE DEMO */
+	</style>
+	<script type="text/javascript">
+	var rememberPositionedInCookie = true;
+	var rememberPosition_cookieName = 'demo2';
+	</script>		
+	<script type="text/javascript" src="js/dragable-content.js"></script>
+</head>
+<body>
+
+<div id="mainContainer">
+	<div id="header">
+		<img src="/images/heading3.gif" class="dragableElement">	
+	</div>
+	<div id="leftMenu" class="dragableElement">
+		<h2>Menu</h2>
+		<ul>
+			<li><a href="http://www.dhtmlgoodies.com">DHTMLgoodies.com</a></li>
+			<li><a href="#">Menu item 2</a></li>
+			<li><a href="#">Menu item 3</a></li>
+			<li><a href="#">Menu item 4</a></li>
+			<li><a href="#">Menu item 5</a></li>
+		</ul>	
+	</div>
+	<div id="mainContent">
+		<p>
+		<div id="smallBox" class="dragableElement">
+			<h3>News story</h3>
+			<img src="images/image7.jpg">This is a dragable box. This box contains both block level and inline level elements.
+			You have a H3 heading, an image and some plain text.<br><br>
+			All the other boxes on this page, including the menu and the dhtmlgoodies heading are also dragable.		
+		</div>
+		<div id="smallBox2" class="dragableElement">
+			<h3>Another news story</h3>
+			<img src="images/image7.jpg">contra si tendere pergas,propterea quia vis magnast ipsius et altea�ra per 
+			purum simulacra ferunturet feriunt oculos turbantia composituras. Praeterea splendor qui cumque est acer adurit saepe oculos ideo quod semina 
+			possidet ignismulta, dolorem oculis quae gignunt insinuando.		
+		</div>
+		<div id="smallBox3" class="dragableElement">
+			<h4>Older news</h4>
+			<img src="images/image8.jpg">contra si tendere pergas,propterea quia vis magnast ipsius et altea�ra per 
+			purum simulacra ferunturet feriunt.	
+		</div>
+		<div id="smallBox3" class="dragableElement">
+			<h4>Older news</h4>
+			<img src="images/image8.jpg">contra si tendere pergas,propterea quia vis magnast ipsius et altea�ra per 
+			purum simulacra ferunturet feriunt.	
+		</div>
+		<div id="smallBox" class="dragableElement">
+			<h3>Headline</h3>
+			<img src="images/image1.jpg">contra si tendere pergas,propterea quia vis magnast ipsius et altea�ra per 
+			purum simulacra ferunturet feriunt oculos turbantia composituras. Praeterea splendor qui cumque est acer adurit saepe oculos ideo quod semina 
+			possidet ignismulta, dolorem oculis quae gignunt insinuando.		
+		</div>		
+	</div>
+	<div class="clear"></div>
+</div>
+<script type="text/javascript">
+initdragableElements();
+</script>
+
+</body>
+</html>
