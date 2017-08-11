@@ -21,7 +21,7 @@ function reconvert(){
   for(var i = 0; i < hexs.length ; i++)
     {
       var tmp = parseInt(hexs.substr(i , 1) , 16).toString(2);
-        while(tmp.length < 4 && i+1 != hexs.length)
+        while(tmp.length < 4 ) //&& i+1 != hexs.length
           tmp = "0" + tmp;
       
       bins += tmp
