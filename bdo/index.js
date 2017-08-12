@@ -1,4 +1,4 @@
-/*
+﻿/*
 
 
 function chk(value, prv , id, nxt){
@@ -39,7 +39,7 @@ $('.cell').click(function()
 
       var point = $(this).data("point");
       var tmp = Number(document.getElementById("point").innerHTML);
-      var stats = document.getElementsByClassName("act");
+      var stats = document.getElementsByClassName("cell");
       var bins = "";
       var hexs;
      //alert(typeof point);
