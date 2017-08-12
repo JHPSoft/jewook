@@ -1,45 +1,78 @@
-﻿/*
+﻿String.prototype.trim = function() {
+    return this.replace(/(^\s*)|(\s*$)/gi, "");
+};
 
-
-function chk(value, prv , id, nxt){
-//메시지 2개를 모두 받으면
-if(arguments.length==2){
-alert(value+' '+prv);
-}else{ //1개만 받으면
-alert(id);
-}
-}
-
-
-function chk(value) {
-  var tmp = document.getElementById("point").innerHTML;
-  tmp = Number(tmp);
-  tmp += value;
-  document.getElementById("point").innerHTML=tmp;
-
-
+function bintohex(val2){
+    var bins = val2.trim();
+    var hexs = "";
+    for(var i = 0; i < (bins.length/4) ; i++)
+    {
+        hexs += parseInt(bins.substr(4*i , 4) , 2).toString(16);
+    }
+    return hexs;
 }
 
+function hextobin(val16){
+    var hexs = val16.trim();
+    var bins = "";
+    for(var i = 0; i < hexs.length ; i++)
+    {
+        var tmp = parseInt(hexs.substr(i , 1) , 16).toString(2);
+            while(tmp.length < 4 )
+                tmp = "0" + tmp;
+      
+        bins += tmp;
+    }
+    return bins;
+}
 
 
-      //var type = $(this).attr('id').substr(0,3);
-      //var id = Number($(this).attr('id').substr(4,3));
-        //alert($(this).attr('class'));
+function getstats()
+{
+    var url = new URL(location.href);
+    var c = hextobin(url.searchParams.get("stats")).substr(1,143);
 
-//      alert(id);
-//      alert(type);
-//      alert(id.toString(16));
-*/
+    for(var i = 0; i < $('.cell').length ; i++)
+    {
+        if( c.substr(i,1) == "1" )
+        {
+            $(".cell").eq(i).addClass( "chked" );
+            $(".cell").eq(i).data("chk","1");
+        }
+    }
+    document.getElementById("stats").innerHTML = c;
+    checking();
+    
+}
 
 function checking()
 {
+    var points = 0;
     
     for(var i = 0; i < $('.cell').length ; i++)
     {
-        if( $("div.cell").eq(i).data("chk") == "1" )
-            $("div.cell").eq(i).addClass( "chked" );
+        if( $(".cell").eq(i).data("chk") == "1" )
+            $(".cell").eq(i).addClass( "chked" );
     }
     
+    for(var j = 0; j < $('.chked').length ; j++)
+    {
+        points += $(".chked").eq(j).data("point");
+    }
+    document.getElementById("point").innerHTML= points;
+}
+
+function makeurl()
+{
+    var bins = "0";
+    
+    for(var j = 0; j < $('.cell').length ; j++)
+    {
+        bins += $(".cell").eq(j).data("chk");
+    }
+    document.getElementById("point").innerHTML= bintohex(bins);
+    alert(bins);
+    alert(bintohex(bins));
 }
 
 
@@ -57,45 +90,7 @@ $('.cell').click(function()
         $( this ).addClass( "chked" );
         $(this).data("chk","1");
     } 
-            
-    for(var i = 0; i < $('.chked').length ; i++)
-    {
-        points += $("div.chked").eq(i).data("point");
-    }
-    document.getElementById("point").innerHTML= points;
     
     checking();
 }
 );
-/*
-$('.cell').click(function() 
-    {
-
-      var point = $(this).data("point");
-      var tmp = Number(document.getElementById("point").innerHTML);
-      var stats = document.getElementsByClassName("cell");
-      var bins = "";
-      var hexs;
-     //alert(typeof point);
-           if ( $( this ).hasClass( "chked" ) ) 
-           {
-                 tmp -= point;
-                $( this ).removeClass( "chked" );
-                 $(this).data("chk","0");
-            } 
-            else
-            {
-                tmp += point;
-                $( this ).addClass( "chked" );
-                 $(this).data("chk","1");
-            } 
-   document.getElementById("point").innerHTML=tmp;
-   for(var i = 0; i < stats.length ; i++)
-       bins += $(stats[i]).data("chk");
-   hexs = parseInt(bins, 2);
-   document.getElementById("stats").innerHTML = bins + "  " + hexs;
-   checking();
-    }
-);
-*/
-

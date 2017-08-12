@@ -1,6 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html >
-<head>
+<head onload="getstats();">
   <meta charset="UTF-8">
 
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -9,10 +9,11 @@
 
 </head>
 
-<body onload="checking()">
-<div id="point">0</div>
+<body onload="checking();">
+<div id="point">0</div><input type="button" value="????" onclick="makeurl()">
 <br>
 <div id="stats">0</div>
+
 <div class="row 1">
   <div class="cell skill1" data-point="0" data-chk="1" title="?? I"> </div>
   <div class="cell skill1" data-point="0" data-chk="0">  </div>
