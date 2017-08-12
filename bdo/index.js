@@ -31,11 +31,45 @@ function chk(value) {
 //      alert(id.toString(16));
 */
 
-
+function checking()
+{
+    
+    for(var i = 0; i < $('.cell').length ; i++)
+    {
+        if( $("div.cell").eq(i).data("chk") == "1" )
+            $("div.cell").eq(i).addClass( "chked" );
+    }
+    
+}
 
 
 $('.cell').click(function() 
 {
+    var points = 0;
+    //alert( $('.cell').length);
+    if ( $( this ).hasClass( "chked" ) ) 
+    {
+        $( this ).removeClass( "chked" );
+        $(this).data("chk","0");
+    } 
+    else
+    {
+        $( this ).addClass( "chked" );
+        $(this).data("chk","1");
+    } 
+            
+    for(var i = 0; i < $('.chked').length ; i++)
+    {
+        points += $("div.chked").eq(i).data("point");
+    }
+    document.getElementById("point").innerHTML= points;
+    
+    checking();
+}
+);
+/*
+$('.cell').click(function() 
+    {
 
       var point = $(this).data("point");
       var tmp = Number(document.getElementById("point").innerHTML);
@@ -60,7 +94,8 @@ $('.cell').click(function()
        bins += $(stats[i]).data("chk");
    hexs = parseInt(bins, 2);
    document.getElementById("stats").innerHTML = bins + "  " + hexs;
-}
+   checking();
+    }
 );
-
+*/
 
