@@ -1,0 +1,156 @@
+body {
+  width : 600px;
+}
+
+.cell {
+  border : 1px solid;
+  width : 31px;
+  height : 31px;
+  margin : 7px;
+  display : inline-block;
+  -webkit-filter : grayscale(100%);
+  filter : gray;
+}
+
+
+.null {
+  visibility : hidden;
+  border : 1px solid;
+  width : 31px;
+  height : 31px;
+  margin : 7px;
+  display : inline-block;
+}
+
+.chked {
+  border : 5px solid;
+  margin : 3px;
+  -webkit-filter : grayscale(0%);
+  filter : none;
+}
+
+.skill1 {
+  background-image : url("img/skill1.jpg");
+}
+
+.skill2 {
+  background-image : url("img/skill2.jpg");
+}
+
+.skill3 {
+  background-image : url("img/skill3.jpg");
+}
+
+.skill4 {
+  background-image : url("img/skill4.jpg");
+}
+
+.skill5 {
+  background-image : url("img/skill5.jpg");
+}
+
+.skill6 {
+  background-image : url("img/skill6.jpg");
+}
+
+.skill7 {
+  background-image : url("img/skill7.jpg");
+}
+
+.skill8 {
+  background-image : url("img/skill8.jpg");
+}
+
+.skill9 {
+  background-image : url("img/skill9.jpg");
+}
+
+.skill10 {
+  background-image : url("img/skill10.jpg");
+}
+
+.skill11 {
+  background-image : url("img/skill11.jpg");
+}
+
+.skill12 {
+  background-image : url("img/skill12.jpg");
+}
+
+.skill13 {
+  background-image : url("img/skill13.jpg");
+}
+
+.skill14 {
+  background-image : url("img/skill14.jpg");
+}
+
+.skill15 {
+  background-image : url("img/skill15.jpg");
+}
+
+.skill16 {
+  background-image : url("img/skill16.jpg");
+}
+
+.skill17 {
+  background-image : url("img/skill17.jpg");
+}
+
+.skill18 {
+  background-image : url("img/skill18.jpg");
+}
+
+.skill19 {
+  background-image : url("img/skill19.jpg");
+}
+
+.skill20 {
+  background-image : url("img/skill20.jpg");
+}
+
+.skill21 {
+  background-image : url("img/skill21.jpg");
+}
+
+.skill22 {
+  background-image : url("img/skill22.jpg");
+}
+
+.skill23 {
+  background-image : url("img/skill23.jpg");
+}
+
+.skill24 {
+  background-image : url("img/skill24.jpg");
+}
+
+.skill25 {
+  background-image : url("img/skill25.jpg");
+}
+
+.skill26 {
+  background-image : url("img/skill26.jpg");
+}
+
+.skill27 {
+  background-image : url("img/skill27.jpg");
+}
+
+.skill28 {
+  background-image : url("img/skill28.jpg");
+}
+
+.skill29 {
+  background-image : url("img/skill29.jpg");
+}
+
+.skill30 {
+  background-image : url("img/skill30.jpg");
+}
+
+
+
+.row {
+  background-color : yellow;
+}
