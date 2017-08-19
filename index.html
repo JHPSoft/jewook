@@ -1,17 +1,459 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html >
 <head>
-	<meta charset="utf-8">
-	<script src="index.js"></script>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
 </head>
-<body>
-	<input id="bin" style="width:80%"><br>
-	<input type="button" value="a" onclick="convert()"><br>
-	<input id="hex" style="width:80%" > <br>
-	<input type="button" value="b" onclick="reconvert()"><br>
-        <input id="rebin" style="width:80%" > <br>              
+
+<body onload="checking();">
+
+<div id="wrapper">
+<div id="fixed">
+  <div class="point">포인트 : </div>
+  <div class="point" id="point">0</div>
+  <input type="button" value="코드생성" onclick="makecode()" class="code">
+  <input type="button" value="코드입력" onclick="inputcode()" class="code">
+  <input type="text" class="code" id="code">
+
+  <div id="stats" style="display:none;">0</div>
+</div>
+
+<div id="content">
+<div class="row 1">
+  <div class="cell skill1" data-point="0" data-chk="1" title="강권 I"> </div>
+  <div class="cell skill1" data-point="0" data-chk="0">  </div>
+  <div class="cell skill1" data-point="0" data-chk="0">  </div>
+  <div class="cell skill1" data-point="0" data-chk="0">  </div>
+  <div class="cell skill1" data-point="0" data-chk="0">  </div>
+  <div class="cell skill1" data-point="0" data-chk="0">  </div>
+  <div class="cell skill1" data-point="0" data-chk="0">  </div>
+  <div class="cell skill1" data-point="0" data-chk="0"> </div>
+  <div class="cell skill1" data-point="0" data-chk="0">  </div>
+  <div class="cell skill1" data-point="0" data-chk="0">  </div>
+  <div class="cell skill2" data-point="0" data-chk="1"> </div>
+</div>
+
+
+<div class="row 2">
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="cell skill3" data-point="0" data-chk="1">  </div>
+</div>
+
+<div class="row 3">
+  <div class="cell skill4 " data-point="0" data-chk="1">  </div>
+  <div class="cell skill4 " data-point="5" data-chk="0">  </div>
+  <div class="cell skill4 " data-point="10" data-chk="0">  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="null" >  </div>
+  <div class="cell skill5 " data-point="0" data-chk="1">  </div>
+  <div class="cell skill5 " data-point="5" data-chk="0">  </div>
+  <div class="cell skill5 " data-point="11" data-chk="0">  </div>
+  <div class="null" >  </div>
+  <div class="cell skill6" data-point="0" data-chk="1">  </div>
+</div>
+
+
+<div class="row 4">
+  <div class="cell skill7 " data-point="0" data-chk="1">  </div>
+  <div class="cell skill7 " data-point="5" data-chk="0">  </div>
+  <div class="cell skill7 " data-point="9" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill8 " data-point="0" data-chk="1">  </div>
+  <div class="cell skill8 " data-point="8" data-chk="0">  </div>
+  <div class="cell skill8 " data-point="20" data-chk="0">  </div>
+  <div class="cell skill9 " data-point="9" data-chk="0">  </div>
+  <div class="cell skill10" data-point="0" data-chk="1">  </div>
+</div>
+
+
+<div class="row 5">
+  <div class="cell skill11 " data-point="0" data-chk="1">  </div>
+  <div class="null" ></div>
+  <div class="cell skill11 " data-point="3" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill11 " data-point="9" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill11 " data-point="16" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill11 " data-point="24" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill12" data-point="14" data-chk="0">  </div>
+</div>
+
+<div class="row 6"> 
+  <div class="cell skill13 " data-point="0" data-chk="1">  </div>
+  <div class="null"></div>
+  <div class="cell skill13 " data-point="5" data-chk="0">  </div>
+  <div class="null"></div>
+  <div class="cell skill13 " data-point="11" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill14 " data-point="0" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill15" data-point="0" data-chk="1">  </div>
+</div>
+
+
+<div class="row 7">
+  <div class="null" ></div>
+  <div class="cell skill16 " data-point="0" data-chk="0">  </div>
+  <div class="null"></div>
+  <div class="null" ></div>
+  <div class="cell skill16 " data-point="11" data-chk="0">  </div>
+  <div class="null"></div>
+  <div class="cell skill16 " data-point="20" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null"></div>
+  <div class="cell skill17" data-point="8" data-chk="0">  </div>
+</div>
+
+
+<div class="row 8">
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill18 " data-point="0" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill18 " data-point="11" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill18 " data-point="20" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null"></div>
+</div>
+
+
+<div class="row 9">
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill19 " data-point="5" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill20 " data-point="5" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+</div>
+
+<div class="row 10">
+  <div class="cell skill21 " data-point="0" data-chk="1">  </div>
+  <div class="null" ></div>
+  <div class="cell skill21 " data-point="13" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill21 " data-point="21" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill21 " data-point="30" data-chk="0">  </div>
+  <div class="cell skill22 " data-point="15" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill23 " data-point="5" data-chk="0">  </div>
+  <div class="null"></div>
+</div>
+
+<div class="row 11">
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill24 " data-point="0" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill24 " data-point="12" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill25 " data-point="0" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill26 " data-point="5" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null"></div>
+</div>
+
+
+<div class="row 12">
+  <div class="cell skill27 " data-point="0" data-chk="1">  </div>
+  <div class="null" ></div>
+  <div class="cell skill27 " data-point="4" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill27 " data-point="9" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill27 " data-point="15" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+</div>
+
+<div class="row 13">
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill28 " data-point="10" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill29 " data-point="15" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+</div>
+
+
+<div class="row 14">
+  <div class="cell skill30 " data-point="0" data-chk="1">  </div>
+  <div class="null" ></div>
+  <div class="cell skill30 " data-point="6" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="cell skill30 " data-point="13" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill30 " data-point="18" data-chk="0">  </div>
+  <div class="null"></div>
+  <div class="null" ></div>
+  <div class="cell skill31 " data-point="24" data-chk="0">  </div>
+</div>
 
 
 
+<div class="row 15">
+  <div class="cell skill32 " data-point="0" data-chk="1">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill32 " data-point="6" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill32 " data-point="18" data-chk="0">  </div>
+  <div class="null"></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+</div>
+
+
+<div class="row 16">
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill33 " data-point="0" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill33 " data-point="8" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill33 " data-point="16" data-chk="0">  </div>
+  <div class="null" ></div>
+  <div class="null" ></div>
+</div>
+
+
+<div class="row 17">
+  <div class="null" ></div>
+  <div class="null" ></div>
+  <div class="cell skill34 " data-point="0" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill34 " data-point="8" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill34 " data-point="16" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+</div>
+
+
+<div class="row 18">
+  <div class="cell skill35 " data-point="0" data-chk="1">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill35 " data-point="8" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill35 " data-point="17" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill35 " data-point="24" data-chk="0">  </div>
+  <div class="cell skill36 " data-point="10" data-chk="0">  </div>
+  <div class="null"  ></div>
+</div>
+
+
+<div class="row 19">
+  <div class="null"  ></div>
+  <div class="cell skill37 " data-point="0" data-chk="1">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill37 " data-point="6" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill37 " data-point="13" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill37 " data-point="21" data-chk="0">  </div>
+  <div class="cell skill38 " data-point="6" data-chk="0">  </div>
+  <div class="null"  ></div>
+</div>
+
+
+<div class="row 20">
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill39 " data-point="0" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill39 " data-point="10" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill39 " data-point="20" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+</div>
+
+
+
+<div class="row 21">
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill40 " data-point="0" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill40 " data-point="10" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill40 " data-point="20" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill41 " data-point="5" data-chk="0">  </div>
+  <div class="null"  ></div>
+</div>
+
+<div class="row 22">
+  <div class="cell skill42 " data-point="0" data-chk="1">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill42 " data-point="13" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill42 " data-point="22" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell skill42 " data-point="32" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+</div>
+
+
+<div class="row 23">
+  <div class="cell skill43 " data-point="0" data-chk="1">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill43 " data-point="9" data-chk="0"> </div>
+  <div class="null"  ></div>
+  <div class="cell skill43 " data-point="16" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill43 " data-point="24" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill43 " data-point="33" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+</div>
+
+
+<div class="row 24">
+  <div class="cell skill44 " data-point="0" data-chk="1">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill44 " data-point="12" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill44 " data-point="19" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill44 " data-point="27" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill44 " data-point="36" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+</div>
+
+<div class="row">
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="null"  ></div>
+</div>
+<div class="row">
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="cell skill45 " data-point="3" data-chk="0">  </div>
+  <div class="null"  ></div>
+</div>
+
+
+
+<div class="row">
+  <div class="cell skill46 " data-point="10" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill46 " data-point="12" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill46 " data-point="14" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill46 " data-point="16" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill46 " data-point="18" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill46 " data-point="20" data-chk="0">  </div>
+</div>
+
+
+<div class="row">
+  <div class="cell skill47 " data-point="3" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill47 " data-point="5" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill47 " data-point="8" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill47 " data-point="10" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="cell skill47 " data-point="12" data-chk="0">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+</div>
+
+
+<div class="row">
+  <div class="cell skill48 " data-point="0" data-chk="1">  </div>
+  <div class="cell skill49 " data-point="0" data-chk="1">  </div>
+  <div class="cell skill50 " data-point="0" data-chk="1">  </div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="null"  ></div>
+  <div class="cell chked skill51 " data-point="0" data-chk="1">  </div>
+</div>
+
+</div>
+</div>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="index.js"></script>
 </body>
 </html>
