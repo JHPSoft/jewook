@@ -13,6 +13,43 @@
 <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
 </a>
 <script type='text/javascript'>
+
+//change the text below to reflect your own,
+var current="<h3>박제욱 전역!</h3>"
+var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
+
+
+var message=""
+function setitem(mday,mhour,mmin,msec)
+{
+  message="박제욱 전역까지 " + mday + "일 " +mhour +"시간 " + mmin + "분 " + msec +"초 남음"
+}
+function countdown(yr,m,d)
+{
+  theyear=yr;themonth=m;theday=d
+  var today=new Date()
+  var todayy=today.getYear()
+  if (todayy < 1000)
+  todayy+=1900
+  var todaym=today.getMonth()
+  var todayd=today.getDate()
+  var todayh=today.getHours()
+  var todaymin=today.getMinutes()
+  var todaysec=today.getSeconds()
+  var todaystring=montharray[todaym]+" "+todayd+", "+todayy+" "+todayh+":"+todaymin+":"+todaysec
+  futurestring=montharray[m-1]+" "+d+", "+yr
+  dd=Date.parse(futurestring)-Date.parse(todaystring)
+  dday=Math.floor(dd/(60*60*1000*24)*1)
+  dhour=Math.floor((dd%(60*60*1000*24))/(60*60*1000)*1)
+  dmin=Math.floor(((dd%(60*60*1000*24))%(60*60*1000))/(60*1000)*1)
+  dsec=Math.floor((((dd%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1)
+  setitem(dday,dhour,dmin,dsec)
+  setTimeout("countdown(theyear,themonth,theday)",1000)
+}
+//enter the count down date using the format year/month/day
+countdown(2018,02,28)
+
+
   //<![CDATA[
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('2214027dad74907b4a2b3709b2d5cf91');
@@ -21,27 +58,15 @@
       container: '#kakao-link-btn',
       objectType: 'feed',
       content: {
-        title: '딸기 치즈 케익',
-        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-        imageUrl: 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+        title: '박제욱 전역 계산기',
+        description: message,
+        imageUrl: 'https://jhpsoft.github.io/jewook/jewook.jpg',
         link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com'
+          mobileWebUrl: 'https://jhpsoft.github.io/jewook/',
+          webUrl: 'https://jhpsoft.github.io/jewook/'
         }
       },
-      social: {
-        likeCount: 286,
-        commentCount: 45,
-        sharedCount: 845
-      },
       buttons: [
-        {
-          title: '웹으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com'
-          }
-        },
         {
           title: '앱으로 보기',
           link: {
