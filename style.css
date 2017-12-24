@@ -1,227 +1,25 @@
-body {
-    background-color : #333333;
-  margin : 0px;
+html, body, #bg, #imgbg{
+  width:100%;
+  height:100%;
+  margin: 0;
+  overflow: hidden;
 }
 
-input.text, input[type="text"], input[type="button"]{
-
+#bg{
+    z-index: 1;
+    position: absolute;
 }
 
-.cell {
-  border : 1px solid;
-  width : 31px;
-  height : 31px;
-  margin : 7px;
-  display : inline-block;
-  -webkit-filter : grayscale(100%);
-  filter : gray;
-  filter : grayscale(1);
+#imgbg{
+  background-color: #fff;
+  opacity: 0.5;
 }
 
-
-.null {
-  visibility : hidden;
-  border : 1px solid;
-  width : 31px;
-  height : 31px;
-  margin : 7px;
-  display : inline-block;
-}
-
-.chked {
-  border : 1px solid #ffff00;
-  margin : 7px;
-  -webkit-filter : grayscale(0%);
-  filter : none;
-}
-
-.point{
-  margin-left : 3px;
-  font-size : 30px;
-  display : inline;
-  float : left;
-}
-
-.code{
-  -webkit-appearance: none;
-border-radius: 3;
-line-height : 33px;
-
-  font-size: 20px;
-  display : inline;
-  float : right;
-}
-
-#wrapper {
-  width : 580px;
-  margin : auto;
-  background-color : #333333;
-}
-
-#fixed{
-  z-index : 1;
-  position : fixed;
-  top : 0px;
-  left : 0px;
-  height : 40px;
-  width : 100%;
-  background-color : white;
-  border : 1px solid;
-}
-
-#content{
-  margin-top : 40px;
-  margin-left : 0px;
-  
-}
-
-#code{ 
-  padding : 0px;
-  width : 40%;
-}
-.skill1 {
-  background-image : url("img/skill1.jpg");
-}
-
-.skill2 {
-  background-image : url("img/skill2.jpg");
-}
-
-.skill3 {
-  background-image : url("img/skill3.jpg");
-}
-
-.skill4 {
-  background-image : url("img/skill4.jpg");
-}
-
-.skill5 {
-  background-image : url("img/skill5.jpg");
-}
-
-.skill6 {
-  background-image : url("img/skill6.jpg");
-}
-
-.skill7 {
-  background-image : url("img/skill7.jpg");
-}
-
-.skill8 {
-  background-image : url("img/skill8.jpg");
-}
-
-.skill9 {
-  background-image : url("img/skill9.jpg");
-}
-
-.skill10 {
-  background-image : url("img/skill10.jpg");
-}
-
-.skill11 {
-  background-image : url("img/skill11.jpg");
-}
-
-.skill12 {
-  background-image : url("img/skill12.jpg");
-}
-
-.skill13 {
-  background-image : url("img/skill13.jpg");
-}
-
-.skill14 {
-  background-image : url("img/skill14.jpg");
-}
-
-.skill15 {
-  background-image : url("img/skill15.jpg");
-}
-
-.skill16 {
-  background-image : url("img/skill16.jpg");
-}
-
-.skill17 {
-  background-image : url("img/skill17.jpg");
-}
-
-.skill18 {
-  background-image : url("img/skill18.jpg");
-}
-
-.skill19 {
-  background-image : url("img/skill19.jpg");
-}
-
-.skill20 {
-  background-image : url("img/skill20.jpg");
-}
-
-.skill21 {
-  background-image : url("img/skill21.jpg");
-}
-
-.skill22 {
-  background-image : url("img/skill22.jpg");
-}
-
-.skill23 {
-  background-image : url("img/skill23.jpg");
-}
-
-.skill24 {
-  background-image : url("img/skill24.jpg");
-}
-
-.skill25 {
-  background-image : url("img/skill25.jpg");
-}
-
-.skill26 {
-  background-image : url("img/skill26.jpg");
-}
-
-.skill27 {
-  background-image : url("img/skill27.jpg");
-}
-
-.skill28 {
-  background-image : url("img/skill28.jpg");
-}
-
-.skill29 {
-  background-image : url("img/skill29.jpg");
-}
-
-.skill30 {
-  background-image : url("img/skill30.jpg");
-}
-
-.skill31 { background-image : url("img/skill31.jpg");}
-.skill32 { background-image : url("img/skill32.jpg");}
-.skill33 { background-image : url("img/skill33.jpg");}
-.skill34 { background-image : url("img/skill34.jpg");}
-.skill35 { background-image : url("img/skill35.jpg");}
-.skill36 { background-image : url("img/skill36.jpg");}
-.skill37 { background-image : url("img/skill37.jpg");}
-.skill38 { background-image : url("img/skill38.jpg");}
-.skill39 { background-image : url("img/skill39.jpg");}
-.skill40 { background-image : url("img/skill40.jpg");}
-.skill41 { background-image : url("img/skill41.jpg");}
-.skill42 { background-image : url("img/skill42.jpg");}
-.skill43 { background-image : url("img/skill43.jpg");}
-.skill44 { background-image : url("img/skill44.jpg");}
-.skill45 { background-image : url("img/skill45.jpg");}
-.skill46 { background-image : url("img/skill46.jpg");}
-.skill47 { background-image : url("img/skill47.jpg");}
-.skill48 { background-image : url("img/skill48.jpg");}
-.skill49 { background-image : url("img/skill49.jpg");}
-.skill50 { background-image : url("img/skill50.jpg");}
-.skill51 { background-image : url("img/skill51.jpg");}
-
-
-.row {
-  //background-color : #333333 ;
+#timer{
+  position: absolute;
+    text-align: center;
+    top: 75%;
+    margin-left: 25%;
+    width: 50%;
+    z-index: 2;
 }
