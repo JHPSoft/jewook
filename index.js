@@ -1,104 +1,32 @@
-String.prototype.trim = function() {
-    return this.replace(/(^\s*)|(\s*$)/gi, "");
-};
+//change the text below to reflect your own,
+var current="<h3>박제욱 전역!</h3>"
+var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
 
-function bintohex(val2){
-    var bins = val2.trim();
-    var hexs = "";
-    for(var i = 0; i < (bins.length/4) ; i++)
-    {
-        hexs += parseInt(bins.substr(4*i , 4) , 2).toString(16);
-    }
-    return hexs;
+function countdown(yr,m,d){
+theyear=yr;themonth=m;theday=d
+var today=new Date()
+var todayy=today.getYear()
+if (todayy < 1000)
+todayy+=1900
+var todaym=today.getMonth()
+var todayd=today.getDate()
+var todayh=today.getHours()
+var todaymin=today.getMinutes()
+var todaysec=today.getSeconds()
+var todaystring=montharray[todaym]+" "+todayd+", "+todayy+" "+todayh+":"+todaymin+":"+todaysec
+futurestring=montharray[m-1]+" "+d+", "+yr
+dd=Date.parse(futurestring)-Date.parse(todaystring)
+dday=Math.floor(dd/(60*60*1000*24)*1)
+dhour=Math.floor((dd%(60*60*1000*24))/(60*60*1000)*1)
+dmin=Math.floor(((dd%(60*60*1000*24))%(60*60*1000))/(60*1000)*1)
+dsec=Math.floor((((dd%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1)
+if(dday<0){
+document.getElementById('timer').innerHTML=current
+return
 }
-
-function hextobin(val16){
-    var hexs = val16.trim();
-    var bins = "";
-    for(var i = 0; i < hexs.length ; i++)
-    {
-        var tmp = parseInt(hexs.substr(i , 1) , 16).toString(2);
-            while(tmp.length < 4 )
-                tmp = "0" + tmp;
-      
-        bins += tmp;
-    }
-    return bins;
+else
+document.getElementById('timer').innerHTML="<h3>박제욱 전역까지</h3><h2>"+dday+ "일 "+dhour+"시간 "+dmin+" 분 "+dsec+"초 남음</h2>"
+setTimeout("countdown(theyear,themonth,theday)",1000)
 }
-
-
-
-function checking()
-{
-    var points = 0;
-    
-    for(var i = 0; i < $('.cell').length ; i++)
-    {
-        if( $(".cell").eq(i).data("chk") == "1" )
-            $(".cell").eq(i).addClass( "chked" );
-    }
-    
-    for(var j = 0; j < $('.chked').length ; j++)
-    {
-        points += $(".chked").eq(j).data("point");
-    }
-    //document.getElementById("point").innerHTML= points;
-    $("#point").text(points);
-}
-
-function makecode()
-{
-    var bins = "0";
-    
-    for(var j = 0; j < $('.cell').length ; j++)
-    {
-        bins += $(".cell").eq(j).data("chk");
-    }
-
-    $('#code').val(bintohex(bins));
-
-    alert("코드 : " + bintohex(bins));
-}
-
-function inputcode()
-{
-    var c = hextobin(  $('#code').val() ).substr(1,143);
-
-  
-    for(var i = 0; i <  $('.cell').length ; i++)
-    {
-        if( c.substr(i,1).localeCompare("1") == "0")
-        {
-            $(".cell").eq(i).addClass( "chked" );
-            $(".cell").eq(i).data("chk","1");
-        }
-        else if( c.substr(i,1).localeCompare("0") == "0")
-        {
-            $(".cell").eq(i).removeClass( "chked" );
-            $(".cell").eq(i).data("chk","0");
-        }
-    }
-
-    checking();
-    
-}
-
-
-$('.cell').click(function() 
-{
-    var points = 0;
-
-    if ( $( this ).hasClass( "chked" ) ) 
-    {
-        $( this ).removeClass( "chked" );
-        $(this).data("chk","0");
-    } 
-    else
-    {
-        $( this ).addClass( "chked" );
-        $(this).data("chk","1");
-    } 
-    
-    checking();
-}
-);
+//enter the count down date using the format year/month/day
+countdown(2018,02,28)
